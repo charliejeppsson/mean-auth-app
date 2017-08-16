@@ -48,6 +48,11 @@ app.get('/', (req, res) => {
   res.send('Invalid endpoint');
 });
 
+// To make every unspecified route go to public/index.html
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/index.html'));
+});
+
 // Start server
 app.listen(port, () => {
   console.log('Server started on port '+port);
