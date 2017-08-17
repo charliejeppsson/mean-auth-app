@@ -20,6 +20,7 @@ import { SearchComponent } from './components/search/search.component';
 import { ValidateService } from './services/validate.service';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './guards/auth.guard';
+import { SpotifyService } from './services/spotify.service';
 
 const appRoutes: Routes = [
   {path:'', component: HomeComponent},
@@ -47,7 +48,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     FlashMessagesModule
   ],
-  providers: [ValidateService, AuthService, AuthGuard],
+  providers: [ValidateService, AuthService, AuthGuard, SpotifyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
