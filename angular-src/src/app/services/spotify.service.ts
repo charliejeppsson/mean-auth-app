@@ -5,6 +5,9 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class SpotifyService {
   private searchUrl: string;
+  private artistUrl: string;
+  private albumsUrl: string;
+  private albumUrl: string;
   private redirect_uri: string;
   private client_id = '8d1e1fb310d54ab883b518bbaefa027b';
   private client_secret = 'c12b32b509b246f8a7cdf070bf0e3dbf';
@@ -16,15 +19,12 @@ export class SpotifyService {
 
   }
 
+  // The authorization flow the Spotify API uses is the Authorization Code Flow. This flow first gets a code from the Spotify Accounts Service, then exchanges that code for an access token.
   getToken(){
-    // let params : URLSearchParams = new URLSearchParams();
-    // params.set('grant_type' , 'client_credentials');
-    // let body = params.toString();
     var params = ('grant_type=client_credentials');
 
     var headers = new Headers();
     headers.append( 'Authorization', 'Basic ' + this.encoded);
-
     headers.append('Content-Type' , 'application/x-www-form-urlencoded');
 
     return this.http.post('https://accounts.spotify.com/api/token', params, {headers : headers} )
@@ -39,6 +39,34 @@ export class SpotifyService {
 
     return this.http.get(this.searchUrl , {headers : headers})
       .map((res: Response) => res.json())
-
   }
+
+  getArtist(id:string, token:string){
+    this.artistUrl = 'https://api.spotify.com/v1/artists/'+ id;
+    let headers = new Headers();
+    headers.append('Authorization', 'Bearer ' + token);
+
+    return this.http.get(this.artistUrl , {headers : headers})
+      .map((res: Response) => res.json())
+  }
+
+  getAlbums(artistId:string, token:string){
+    this.albumsUrl = 'https://api.spotify.com/v1/artists/'+ artistId +'/albums';
+    let headers = new Headers();
+    headers.append('Authorization', 'Bearer ' + token);
+
+    return this.http.get(this.albumsUrl , {headers : headers})
+      .map((res: Response) => res.json())
+  }
+
+  getAlbum(id:string, token:string){
+    this.albumUrl = 'https://api.spotify.com/v1/albums/'+ id;
+    let headers = new Headers();
+    headers.append('Authorization', 'Bearer ' + token);
+
+    return this.http.get(this.albumUrl , {headers : headers})
+      .map((res: Response) => res.json())
+  }
+
+
 }
