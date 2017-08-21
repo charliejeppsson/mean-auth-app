@@ -37,6 +37,7 @@ export class SpotifyService {
     this.searchUrl = 'https://api.spotify.com/v1/search?query='+str+'&offset=0&limit=50&type='+type;
     let headers = new Headers();
     headers.append('Authorization', 'Bearer ' + token);
+    headers.append('Access-Control-Allow-Origin', '*');
 
     return this.http.get(this.searchUrl , {headers : headers})
       .map((res: Response) => res.json())
@@ -46,6 +47,7 @@ export class SpotifyService {
     this.artistUrl = 'https://api.spotify.com/v1/artists/'+ id;
     let headers = new Headers();
     headers.append('Authorization', 'Bearer ' + token);
+    headers.append('Access-Control-Allow-Origin', '*');
 
     return this.http.get(this.artistUrl , {headers : headers})
       .map((res: Response) => res.json())
@@ -55,6 +57,7 @@ export class SpotifyService {
     this.albumsUrl = 'https://api.spotify.com/v1/artists/'+ artistId +'/albums';
     let headers = new Headers();
     headers.append('Authorization', 'Bearer ' + token);
+    headers.append('Access-Control-Allow-Origin', '*');
 
     return this.http.get(this.albumsUrl , {headers : headers})
       .map((res: Response) => res.json())
@@ -64,6 +67,7 @@ export class SpotifyService {
     this.albumUrl = 'https://api.spotify.com/v1/albums/'+ id;
     let headers = new Headers();
     headers.append('Authorization', 'Bearer ' + token);
+    headers.append('Access-Control-Allow-Origin', '*');
 
     return this.http.get(this.albumUrl , {headers : headers})
       .map((res: Response) => res.json())
