@@ -28,7 +28,12 @@ const port = process.env.PORT || 8080;
 // const port = 3000;
 
 // CORS middleware
-app.use(cors());
+const corsOptions = {
+  origin: 'https://tunebook.herokuapp.com/'
+}
+
+app.use(cors(corsOptions));
+// app.use(cors());
 
 // Set static folder
 app.use(express.static(path.join(__dirname, 'public')));
