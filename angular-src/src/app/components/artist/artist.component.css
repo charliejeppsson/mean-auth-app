@@ -20,6 +20,12 @@
   display: inline;
   margin-right: 0 auto;
 }
+.image-cropper img {
+  display: inline;
+  margin: 0 auto;
+  height: 100%;
+  width: auto;
+}
 .artist-albums .well {
   margin-bottom: 20px;
   overflow: auto;
