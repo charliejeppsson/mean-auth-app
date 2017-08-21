@@ -26,6 +26,7 @@ export class SpotifyService {
     var headers = new Headers();
     headers.append( 'Authorization', 'Basic ' + this.encoded);
     headers.append('Content-Type' , 'application/x-www-form-urlencoded');
+    headers.append('Access-Control-Allow-Origin', '*');
 
     return this.http.post('https://accounts.spotify.com/api/token', params, {headers : headers} )
       .map(res=> res.json());
