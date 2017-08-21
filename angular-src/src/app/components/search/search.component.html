@@ -1,9 +1,10 @@
 <h1>Need music?</h1>
-<p class="lead">With Tunebook you can search for virtually every artist, album and track in the history of music.</p>
+<p class="lead">With Tunebook you can search for virtually every artist in the history of music.</p>
 <form>
   <div class="form-group">
     <input type="text" name="searchStr" [(ngModel)]="searchStr" (keyup)="searchMusic()" class="form-control" placeholder="Search music">
   </div>
+  <p>* If nothing appears when you start typing your browser might be preventing you from retrieving data from Spotify's API. If your using Chrome it can be easily solved by downloading <a href="https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi" target="_blank">this plugin</a>. Make sure to activate it too!</p>
 </form>
 
 <div *ngIf="searchRes">
