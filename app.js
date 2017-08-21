@@ -33,7 +33,7 @@ const port = process.env.PORT || 8080;
 // }
 
 // app.use(cors(corsOptions));
-// app.use(cors());
+app.use(cors());
 
 // Set static folder
 app.use(express.static(path.join(__dirname, 'public')));

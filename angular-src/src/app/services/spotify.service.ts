@@ -13,7 +13,7 @@ export class SpotifyService {
   private client_secret = 'c12b32b509b246f8a7cdf070bf0e3dbf';
   private access_token: string;
   private encoded = btoa(this.client_id + ':' + this.client_secret);
-  private base64 = 'BQDGkTn4SAoF7h9kiJKVxOJTvYuzGm3QDmGFzR3s196d7XZDHIcRr4rz032N7QnzCDK6eaIXWszTGokjodBwKh08EXh3GyRJaeynNenQd5e9tDhuA83FVrkt1Da0ttjoF1_pwmefzvk';
+  // private base64 = 'BQDGkTn4SAoF7h9kiJKVxOJTvYuzGm3QDmGFzR3s196d7XZDHIcRr4rz032N7QnzCDK6eaIXWszTGokjodBwKh08EXh3GyRJaeynNenQd5e9tDhuA83FVrkt1Da0ttjoF1_pwmefzvk';
 
   constructor(private http:Http) {
 
