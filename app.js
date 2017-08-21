@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-const cors = require('cors');
+// const cors = require('cors');
 const passport = require('passport');
 const mongoose = require('mongoose');
 const config = require('./config/database')
@@ -33,7 +33,7 @@ const port = process.env.PORT || 8080;
 // }
 
 // app.use(cors(corsOptions));
-app.use(cors());
+// app.use(cors());
 
 // Set static folder
 app.use(express.static(path.join(__dirname, 'public')));
